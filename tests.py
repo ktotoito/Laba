@@ -55,7 +55,7 @@ class Matrix_test(unittest.TestCase):
         matrix1 = setUpMatrix(n, m, ms1)
         matrix2 = setUpMatrix(n, m, ms2)
 
-        matrix_sum = matrix1 + matrix2  # [[35,42,74,6,0],[0,69,0,9,42],[11,3,54,5,17],[46,33,32,9,0],[5,0,33,50,45],[16,0,66,19,13]]
+        matrix_sum = matrix1 + matrix2
         self.assertEqual([8, -74, -2, 1, 69, 38, 8, -3, 49, -9, 46, 33, 100, -9, 4, -25, -8, 50, 45, 16, 26, 9], matrix_sum.vector_not_zero)
         self.assertEqual([0, 2, 3, 4, 1, 3, 0, 1, 2, 4, 0, 1, 2, 3, 0, 1, 2, 3, 4, 0, 2, 4], matrix_sum.vector_not_zero_cols)
         self.assertEqual([0, 4, 6, 10, 14, 19, 22], matrix_sum.vector_elemets_in_row)
