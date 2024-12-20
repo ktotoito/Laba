@@ -156,3 +156,17 @@ class Matrix:
             if i != row:
                 minor.add(k)
         return minor
+
+# print('Введите размеры матрицы N и M через пробелы:\n')
+# n, m = map(int, input().split())
+# print('Введите элементы матрицы через пробел:\n')
+# matrix = Matrix(n,m)
+# for i in range(n): # проходимся по строкам
+#     k = 0 # счётчик количества элементов в строке
+#     row = list(map(int, input().split()))
+#     for j in range(m): # проходимся по столбцам
+#         elem = row[j]
+#         if elem != 0:
+#             k += 1 # Прибавляем ненулевой элемент
+#         matrix.add_el(elem, j) # Добавляем элемент
+#     matrix.add(k) # Добавляем строку
