@@ -34,6 +34,15 @@ class Matrix:
             for i in range(self.n + 1):
                 ans += self.get(i, i)
             return ans
+            
+    def __str__(self):
+        matrix = []
+        for i in range(self.n):
+            row  = []
+            for j in range(self.m):
+                row.append(str(self.get(i+1, j+1)))
+            matrix.append(' '.join(row))
+        return '\n'.join(matrix)
 
     def __add__(self, other):
         if (self.n != other.n) or (self.m != other.m):
@@ -131,12 +140,12 @@ class Matrix:
         det = 0
         for col in range(1, self.n + 1):
             # Вычисляем минор для текущего столбца
-            minor = self._get_minor(1, col)
+            minor = self._get_minor(col)
             det += ((-1) ** (1 + col)) * self.get(1, col) * minor.determinant()
 
         return det
 
-    def _get_minor(self, row, col):
+    def _get_minor(self, col):
         # Создаём новую матрицу (N-1)x(M-1) как объект Matrix
         minor_n = self.n - 1
         minor_m = self.m - 1
@@ -157,34 +166,47 @@ class Matrix:
             minor.add(k) # Добавляем строку
         return minor
 
-# Код для первой задачи
-# print('Введите размеры матрицы N и M через пробелы:')
-# n, m = map(int, input().split())
-# print('Введите элементы матрицы через пробел:')
-# matrix = Matrix(n,m)
-# for i in range(n): # Проходимся по строкам
-#     k = 0 # Счётчик количества элементов в строке
-#     row = list(map(int, input().split()))
-#     for j in range(m): # Проходимся по столбцам
-#         elem = row[j]
-#         if elem != 0:
-#             k += 1 # Прибавляем ненулевой элемент
-#         matrix.add_el(elem, j) # Добавляем элемент
-#     matrix.add(k) # Добавляем строку
+def setUpMatrixInput(is_square=0):
+    size = ''
+    if is_square:
+        print('Введите размер квадратной матрицы:')
+        size = input().split() * 2
+    else:
+        print('Введите размеры матрицы N и M через пробелы:')
+        size = input().split()
+    n, m = map(int, size)
+    print('Введите элементы матрицы через пробел:')
+    matrix = Matrix(n,m)
+    for i in range(n): # проходимся по строкам
+        k = 0 # счётчик количества элементов в строке
+        row = list(map(int, input().split()))
+        for j in range(m): # проходимся по столбцам
+            elem = row[j]
+            if elem != 0:
+                k += 1 # Прибавляем ненулевой элемент
+            matrix.add_el(elem, j) # Добавляем элемент
+        matrix.add(k) # Добавляем строку
+    return matrix
 
-# Код для третьей задачи
-# print('Введите размер N квадратной матрицы:')
-# n, m = map(int, input().split())
-# print('Введите элементы матрицы через пробел:')
-# matrix = Matrix(n,m)
-# for i in range(n): # Проходимся по строкам
-#     k = 0 # Счётчик количества элементов в строке
-#     row = list(map(int, input().split()))
-#     for j in range(m): # Проходимся по столбцам
-#         elem = row[j]
-#         if elem != 0:
-#             k += 1 # Прибавляем ненулевой элемент
-#         matrix.add_el(elem, j) # Добавляем элемент
-#     matrix.add(k) # Добавляем строку
-# print(matrix.determinant_and_is_reversed())
-
+# # Код для первой задачи
+# matrix1 = setUpMatrixInput()
+# print(matrix1)
+# matrix1_2 = setUpMatrixInput()
+# print(matrix1_2.trace())
+#
+# # Код для второй задачи
+# matrix2 = setUpMatrixInput()
+# num = int(input('Введите число'))
+# matrix_scal = matrix2 * num
+#
+# matrix2_1 = setUpMatrixInput()
+# matrix2_2 = setUpMatrixInput()
+# matrix_sum = matrix2_1 + matrix2_2
+#
+# matrix2_3 = setUpMatrixInput()
+# matrix2_4 = setUpMatrixInput()
+# matrix_prod = matrix2_3 @ matrix2_4
+#
+# # Код для третьей задачи
+# matrix3 = setUpMatrixInput(is_square=1)
+# print(matrix3.determinant_and_is_reversed())
