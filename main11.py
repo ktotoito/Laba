@@ -157,6 +157,7 @@ class Matrix:
             minor.add(k) # Добавляем строку
         return minor
 
+# Код для первой задачи
 # print('Введите размеры матрицы N и M через пробелы:')
 # n, m = map(int, input().split())
 # print('Введите элементы матрицы через пробел:')
@@ -170,4 +171,20 @@ class Matrix:
 #             k += 1 # Прибавляем ненулевой элемент
 #         matrix.add_el(elem, j) # Добавляем элемент
 #     matrix.add(k) # Добавляем строку
+
+# Код для третьей задачи
+# print('Введите размер квадратной матрицы N:')
+# n, m = map(int, input().split())
+# print('Введите элементы матрицы через пробел:')
+# matrix = Matrix(n,m)
+# for i in range(n): # Проходимся по строкам
+#     k = 0 # Счётчик количества элементов в строке
+#     row = list(map(int, input().split()))
+#     for j in range(m): # Проходимся по столбцам
+#         elem = row[j]
+#         if elem != 0:
+#             k += 1 # Прибавляем ненулевой элемент
+#         matrix.add_el(elem, j) # Добавляем элемент
+#     matrix.add(k) # Добавляем строку
+# print(matrix.determinant_and_is_reversed())
 
