@@ -196,16 +196,19 @@ def setUpMatrixInput(is_square=0):
 #
 # # Код для второй задачи
 # matrix2 = setUpMatrixInput()
-# num = int(input('Введите число'))
+# num = int(input('Введите число:'))
 # matrix_scal = matrix2 * num
+# print(matrix_scal)
 #
 # matrix2_1 = setUpMatrixInput()
 # matrix2_2 = setUpMatrixInput()
 # matrix_sum = matrix2_1 + matrix2_2
-#
+# print(matrix_sum)
+# 
 # matrix2_3 = setUpMatrixInput()
 # matrix2_4 = setUpMatrixInput()
 # matrix_prod = matrix2_3 @ matrix2_4
+# print(matrix_prod)
 #
 # # Код для третьей задачи
 # matrix3 = setUpMatrixInput(is_square=1)
